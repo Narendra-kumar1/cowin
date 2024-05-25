@@ -1,0 +1,36 @@
+/* Write your CSS here */
+
+.bg-container {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  background-color: #161625;
+  min-height: 100vh;
+  color: #cbd5e1;
+}
+.content {
+  width: 70%;
+}
+.failure {
+  display: felx;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image {
+  width: 200px;
+}
+.header {
+  display: flex;
+  justify-content: felx-start;
+  align-items: center;
+  width: 100%;
+  text-align: start;
+}
+.para {
+  color: #2cc6c6;
+}
+.logo {
+  margin-right: 10px;
+  width: 20px;
+}
