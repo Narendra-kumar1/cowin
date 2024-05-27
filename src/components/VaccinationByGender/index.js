@@ -2,7 +2,9 @@
 
 import {PieChart, Pie, Legend, Cell, ResponsiveContainer} from 'recharts'
 import './index.css'
+
 const VaccinationByGender = props => {
+  const {data} = props
   return (
     <div>
       <h1>Vaccination by Gender</h1>
@@ -11,7 +13,7 @@ const VaccinationByGender = props => {
           <Pie
             cx="70%"
             cy="40%"
-            data={props.data}
+            data={data}
             startAngle={180}
             endAngle={0}
             innerRadius="40%"

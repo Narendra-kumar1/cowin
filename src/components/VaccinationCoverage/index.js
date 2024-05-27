@@ -10,12 +10,13 @@ import {
 } from 'recharts'
 
 const VaccinationCoverage = props => {
+  const {data} = props
   return (
     <div>
       <h1>Vaccination Coverage</h1>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart
-          data={props.data}
+          data={data}
           margin={{
             top: 5,
           }}
@@ -27,7 +28,7 @@ const VaccinationCoverage = props => {
             }}
           />
           <YAxis
-            tickFormatter={props.data.dose1}
+            tickFormatter={data.dose1}
             tick={{
               strokeWidth: 1,
             }}
@@ -44,5 +45,4 @@ const VaccinationCoverage = props => {
     </div>
   )
 }
-
 export default VaccinationCoverage

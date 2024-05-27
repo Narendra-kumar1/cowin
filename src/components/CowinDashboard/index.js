@@ -1,19 +1,21 @@
 // Write your code here
+
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import './index.css'
 import VaccinationByAge from '../VaccinationByAge'
 import VaccinationByGender from '../VaccinationByGender'
 import VaccinationCoverage from '../VaccinationCoverage'
-import Loader from 'react-loader-spinner'
 
 const vaccinationDataApiUrl = 'https://apis.ccbp.in/covid-vaccination-data'
 
-
 class CowinDashboard extends Component {
   state = {obj: {}, isFail: false, loader: true}
+
   componentDidMount() {
     this.getData()
   }
+
   getData = async () => {
     try {
       const response = await fetch(vaccinationDataApiUrl)
@@ -54,11 +56,12 @@ class CowinDashboard extends Component {
           </div>
 
           <h1 className="heading">CoWIN Vaccination in india</h1>
-          {loader ? (
+          {loader && (
             <div data-testid="loader">
               <Loader type="ThreeDots" color="#ffffff" height={80} width={80} />
             </div>
-          ) : isFail ? (
+          )}
+          {!loader && isFail && (
             <div className="failure">
               <img
                 src="https://assets.ccbp.in/frontend/react-js/api-failure-view.png"
@@ -67,7 +70,8 @@ class CowinDashboard extends Component {
               />
               <p>Something went wrong</p>
             </div>
-          ) : (
+          )}
+          {!loader && !isFail && (
             <>
               <VaccinationCoverage data={obj.VaccinationByCoverage} />
               <VaccinationByGender data={obj.VaccinationByGender} />
@@ -81,7 +85,7 @@ class CowinDashboard extends Component {
 }
 
 export default CowinDashboard
-/*isFail ? (
+/*  isFail ? (
             <div className="failure">
               <img
                 src="https://assets.ccbp.in/frontend/react-js/api-failure-view.png"
